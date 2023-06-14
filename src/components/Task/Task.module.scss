@@ -1,0 +1,73 @@
+@use "shared.scss" as *;
+.container {
+    padding: 15px 20px;
+    background: $Very-Light-Gray;
+    border-bottom: 1px solid $Light-Grayish-Blue;
+    transition: margin 0.5s;
+    &:hover {
+        margin-bottom: 8px;
+    }
+    .taskContainer {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        &.hide {
+            display: none;
+        }
+        .customCheckbox {
+            flex-shrink: 0;
+        }
+        .text {
+            &.done {
+                text-decoration: line-through;
+                color: $Very-Dark-Grayish-Blue
+            }
+        }
+        .empty {
+            flex-grow: 1;
+        }
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .editIcon {
+            width: 20px;
+            cursor: pointer;
+            // visibility: hidden;
+            &:hover {
+                opacity: 0.8;
+            }
+            &.hide {
+                visibility: hidden;
+            }
+        }
+        .deleteIcon {
+            width: 20px;
+            // visibility: hidden;
+            cursor: pointer;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+
+        @media (max-width: 497px) {
+            // flex-wrap: wrap;
+            flex-direction: column;
+            .customCheckbox {
+                align-self: flex-start;
+            }
+            .text {
+                align-self: flex-start;
+            }
+            .icons {
+                align-self: flex-end;
+            }
+
+        }
+    }
+    &:hover .deleteIcon, &:hover .editIcon {
+        visibility: visible;
+    }
+}

@@ -1,0 +1,26 @@
+@use "shared.scss" as *;
+.addFormContainer {
+    display: flex;
+    align-items: center;
+    background: $Very-Light-Gray;
+    border-radius: 5px;
+    padding: 10px;
+    @media (max-width: 700px) {
+        width: 100%;
+    }
+    input {
+        flex-grow: 1;
+        padding: 10px;
+        background: transparent;
+        border: none;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 16px;
+        outline: none;
+        padding-left: 15px;
+    }
+    button {
+        padding: 10px 20px;
+        // font-weight: bold;
+        // text-transform: uppercase;
+    }
+}

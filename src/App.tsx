@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styles from "./App.module.scss";
+import TaskContext from "contexts/TaskContext";
+import TaskList from "components/TaskList/TaskList";
+import AddForm from "components/AddForm/AddForm";
+import InfoMessage from "components/TaskListFooter/TaskListFooter";
+import Controls from "components/Controls/Controls";
+import FeedbackMessage from "components/FeedbackMessage/FeedbackMessage";
+import useTaskListState from "hooks/useTaskListState";
+import ResponsiveContainer from "components/ResponsiveContainer/ResponsiveContainer";
+import CustomButton from "components/CustomButton/CustomButton";
+import closeIcon from "assets/icons/close.png"
 
 function App() {
+  const taskListState = useTaskListState()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <div className={styles.appContainer}>
+    <TaskContext.Provider value={taskListState}>
+      <ResponsiveContainer>
+      <AddForm className={styles.addForm} />
+      <TaskList className={styles.taskList}/>
+      {taskListState.taskList.length !== 0 && <InfoMessage className={styles.infoMessage}/>}
+      </ResponsiveContainer>
+      <FeedbackMessage/>
+    </TaskContext.Provider>
+   </div>
   );
 }
 

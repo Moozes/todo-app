@@ -1,0 +1,39 @@
+@use "shared.scss" as *;
+.container {
+    font-size: 14px;
+    background: $Very-Light-Gray;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    @media (max-width: 497px) {
+        flex-direction: column;
+    }
+    
+    .tasksLeft {
+        color: $Dark-Grayish-Blue;
+    }
+
+    .filters {
+        display: flex;
+        align-items: center;
+    }
+
+    .empty {
+        flex-grow: 1;
+    }
+
+    .customButton {
+        font-size: 14px;
+        padding: 5px 10px;
+        &:hover {
+            color: $Very-Dark-Grayish-Blue;
+            font-weight: bold;
+        }
+        &.active {
+            color: $Bright-Blue;
+            font-weight: bold;
+        }
+    }
+}

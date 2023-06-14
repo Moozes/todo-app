@@ -1,0 +1,17 @@
+@use "shared.scss" as *;
+.appContainer {
+    min-height: 100vh;
+    background: $Very-Light-Grayish-Blue;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    .addForm {
+        // padding: 40px 20px;
+        margin-bottom: 20px;
+    }
+    
+
+    .infoMessage {
+        // padding: 10px;
+    }
+
+}

@@ -1,0 +1,57 @@
+TODO APP V1
+    --Add task
+    --Edit task
+    --Delete task
+    --Mark task as finished
+
+    test cases: 
+        long task text, responsive design
+
+    bugs
+        (fixed) set edit mode true, empty input, set edit mode false, set edit mode true again => input is empty and not initialized with task text!!
+
+TODO APP V2
+    --number to show how many tasks i have left to do "2 out of 3"
+    --Delete All
+    --Delete finished
+    (not done) Select multiple tasks
+    (not done) Delete selected
+
+
+    bugs
+        (fixed) after adding controls, you gonna have to adjust taskContainer height accordingly
+
+
+TODO APP V3
+    Add feedback messages 
+            --task added 
+            --task deleted 
+            --task finished
+            --task edited 
+            --tasks deleted 
+        in a timed popup with X button to remove it 
+
+        bugs
+            (fixed) dont forget to clear timeout when ever you create a new one, or press X to remove current one
+            (fixed) feedbackMessage is always mounted and causes text cursor to appear, try z-index: -1
+
+TODO APP V4
+    --Clean notification code
+    --Add/Edit todo with enter keyboard button
+    (not done) Add loading spinners
+    --Look how to add hot keys, for delete, edit 
+        seems hard, and contains some accessibility
+        (not done) how to edit single todo with keyboard, need to navigate to it using keyboard
+
+        --maybe add only for delete All, and delete finished
+
+    bugs
+        hot keys not working properly, when focused on inputs
+    
+
+TODO V5
+    Add style
+
+
+
+Host online

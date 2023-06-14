@@ -1,0 +1,15 @@
+@use "shared.scss" as *;
+
+.button {
+    font-family: 'Josefin Sans', sans-serif;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: $Very-Dark-Grayish-Blue;
+    padding: 10px 20px;
+
+    &:active {
+        color: black;
+    }
+}
