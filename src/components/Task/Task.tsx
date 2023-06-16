@@ -36,17 +36,19 @@ export default function Task({ className, task }: TaskProps) {
 
   return (
     <div className={`${styles.container} ${className}`}>
-      <div className={`${styles.taskContainer} ${isEditMode ? styles.hide : ""}`}>
-        {/* <input type="checkbox" checked={task.done} onChange={handleToggleDone}/> */}
-        <CustomCheckbox checked={task.done} onChange={handleToggleDone} className={styles.customCheckbox}/>
-        <p className={`${styles.text} ${task.done ? styles.done : ""}`}>{capitalize(task.text)}</p>
-        <div className={styles.empty}></div>
-        <div className={styles.icons}>
-          <img className={`${styles.editIcon} ${task.done ? styles.hide : ""}`} src={editIcon} alt="" onClick={() => setIsEditMode(true)}/>
-          <img className={styles.deleteIcon} src={deleteIcon} alt="" onClick={handleDelete} />
+      {isEditMode ? (
+        <EditForm setIsEditMode={setIsEditMode} task={task}/>
+      ) : (
+        <div className={`${styles.taskContainer}`}>
+          <CustomCheckbox checked={task.done} onChange={handleToggleDone} className={styles.customCheckbox}/>
+          <p className={`${styles.text} ${task.done ? styles.done : ""}`}>{capitalize(task.text)}</p>
+          <div className={styles.empty}></div>
+          <div className={styles.icons}>
+            <img className={`${styles.editIcon} ${task.done ? styles.hide : ""}`} src={editIcon} alt="" onClick={() => setIsEditMode(true)}/>
+            <img className={styles.deleteIcon} src={deleteIcon} alt="" onClick={handleDelete} />
+          </div>
         </div>
-      </div>
-        <EditForm hide={!isEditMode} setIsEditMode={setIsEditMode} task={task}/>
+      )}
     </div>
   );
 }

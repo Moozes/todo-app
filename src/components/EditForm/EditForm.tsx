@@ -1,31 +1,29 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef} from "react";
 import styles from "./EditForm.module.scss";
 import useTaskContext from "hooks/useTaskContext";
 import { TTask } from "types/types";
 import CustomButton from "components/CustomButton/CustomButton";
 
 type EditFormProps = {
-    hide?: boolean
     setIsEditMode: React.Dispatch<React.SetStateAction<boolean>>;
     task: TTask;
 }
-// TODO: use a ref instead of state, because no need to rerender on each input change
-export default function EditForm({task, hide, setIsEditMode}: EditFormProps) {
-  const [value, setValue] = useState("");
+export default function EditForm({task, setIsEditMode}: EditFormProps) {
   const {editTask, displayFeedbackMessage} = useTaskContext();
+  const inputRef = useRef<HTMLInputElement>(null!)
 
 
   useEffect(() => {
-    setValue(task.text);
-  }, [hide, task])
+    inputRef.current.value = task.text;
+  }, [task])
 
   const handleEdit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if(value === "") {
+    if(inputRef.current.value === "") {
       setIsEditMode(false);
       displayFeedbackMessage("nothing was changed!")
     } else {
-      editTask(task.id, value);
+      editTask(task.id, inputRef.current.value);
       setIsEditMode(false);
       displayFeedbackMessage("task edited successfully!")
     }
@@ -33,8 +31,8 @@ export default function EditForm({task, hide, setIsEditMode}: EditFormProps) {
 
 
   return (
-    <form onSubmit={handleEdit} className={`${styles.editFormContainer} ${hide && styles.hide}`}>
-        <input value={value} onChange={e => setValue(e.target.value)} type="text" placeholder="Task..."/>
+    <form onSubmit={handleEdit} className={`${styles.editFormContainer}`}>
+        <input ref={inputRef}  type="text" placeholder="Task..."/>
         <CustomButton type="submit">Edit</CustomButton>
     </form>
   )

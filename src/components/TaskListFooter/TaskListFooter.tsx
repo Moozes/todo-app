@@ -20,6 +20,9 @@ export default function TaskListFooter({className}: TaskListFooterProps) {
         }
     }
 
+    if(taskList.length === 0)
+        return null;
+
     return (
         <div className={`${styles.container} ${className}`} >
             <div className={`${styles.tasksLeft}`}>items left: <strong> {tasksLeft} </strong></div>

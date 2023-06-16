@@ -11,9 +11,6 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        &.hide {
-            display: none;
-        }
         .customCheckbox {
             flex-shrink: 0;
         }
@@ -34,7 +31,6 @@
         .editIcon {
             width: 20px;
             cursor: pointer;
-            // visibility: hidden;
             &:hover {
                 opacity: 0.8;
             }
@@ -44,7 +40,6 @@
         }
         .deleteIcon {
             width: 20px;
-            // visibility: hidden;
             cursor: pointer;
             &:hover {
                 opacity: 0.8;
@@ -53,7 +48,6 @@
 
 
         @media (max-width: 497px) {
-            // flex-wrap: wrap;
             flex-direction: column;
             .customCheckbox {
                 align-self: flex-start;
